@@ -1,0 +1,37 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Java / Maven
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.factorypath
+*.class
+*.log
+
+# Frontend / Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.tsbuildinfo
+frontend/*.log
+
+# Environment / Docker
+.env
+.env.*
+*.local
+
+# Coverage / reports
+backend/coverage/
+backend/site/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
