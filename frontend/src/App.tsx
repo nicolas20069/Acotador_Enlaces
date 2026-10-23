@@ -147,9 +147,8 @@ export default function App() {
   return (
     <main className="app-shell">
       <header className="header">
-        <p className="eyebrow">PROGRAMACIÓN AVANZADA · PARCIAL</p>
-        <h1>Acortador de enlaces</h1>
-        <p className="subtitle">Arquitectura hexagonal · Spring Boot · MongoDB · Redis · React</p>
+        <p className="eyebrow"> PARCIAL 🤔</p>
+        <h1>Acortador de enlaces 🔗</h1>
       </header>
 
       <section className="workspace" aria-label="Acortador de enlaces">
@@ -157,7 +156,7 @@ export default function App() {
           <div className="tabs" role="tablist" aria-label="Secciones">
             <button type="button" role="tab" aria-selected={tab === 'shorten'}
               className={`tab ${tab === 'shorten' ? 'active' : ''}`} onClick={showShorten}>
-              Acortar enlace
+              Acortar enlaces
             </button>
             <button type="button" role="tab" aria-selected={tab === 'links'}
               className={`tab ${tab === 'links' ? 'active' : ''}`} onClick={showLinks}>
@@ -180,14 +179,14 @@ export default function App() {
           <div className="shorten-pane" role="tabpanel">
             <div className="section-title">
               <h2>Acortar un enlace</h2>
-              <p>Pega una URL y obtén un enlace corto que redirige a la dirección original.</p>
+              <p>Pega una URL y obtén un enlace corto y redirigible </p>
             </div>
             <form className="url-form" onSubmit={shorten}>
               <label htmlFor="original-url">Enlace original</label>
               <input id="original-url" type="url" required value={url}
                 onChange={e => setUrl(e.target.value)} placeholder="https://www.youtube.com/watch?v=..."
                 autoFocus autoComplete="url" />
-              <small className="input-hint">Los enlaces acortados generan códigos con un mínimo de 8 caracteres.</small>
+              <small className="input-hint">Los enlaces acortados tienen un mínimo de 8 caracteres.</small>
               <button type="submit" className="primary-button" disabled={creating}>
                 {creating ? 'Acortando...' : 'Acortar'}
               </button>
@@ -205,7 +204,7 @@ export default function App() {
         ) : (
           <div className="links-pane" role="tabpanel">
             <div className="section-title table-heading">
-              <div><h2>Enlaces registrados</h2><p>Los enlaces originales se guardan de forma permanente en MongoDB.</p></div>
+              <div><h2>Enlaces registrados</h2><p>Enlaces originales: Guardados de forma permanente en MongoDB.</p></div>
               {origin && <span className="source-indicator">Origen: {origin === 'redis' ? 'Redis (caché)' : 'MongoDB'}</span>}
             </div>
             <div className="table-scroll">
@@ -227,7 +226,7 @@ export default function App() {
                     </tr>
                   ))}
                   {!loading && links.length === 0 && (
-                    <tr><td colSpan={3} className="empty-cell">No hay enlaces. Ve a «Acortar enlace» para registrar el primero.</td></tr>
+                    <tr><td colSpan={3} className="empty-cell">No hay enlaces. Acorta un enlace para registrar el primero.</td></tr>
                   )}
                   {loading && <tr><td colSpan={3} className="empty-cell">Consultando enlaces...</td></tr>}
                 </tbody>
@@ -237,7 +236,6 @@ export default function App() {
           </div>
         )}
       </section>
-      <footer>Los enlaces permanecen en MongoDB; Redis conserva la lista consultada durante 30 segundos.</footer>
     </main>
   );
 }
